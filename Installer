@@ -76,14 +76,14 @@ printf '%sThis script will install needed dependencies and copy my dotfiles to y
 sleep 5
 
 while true; do
-	read -rp " Do you wish to continue? [Yy/Nn]: " yn
-		case $yn in
-			[Yy]* ) break;;
-			[Nn]* ) exit;;
-			* ) printf " Error: just write 'y' or 'n'\n\n";;
-		esac
+  read -rp " Do you wish to continue? [Yy/Nn]: " yn
+    case $yn in
+      [Yy]* ) break;;
+      [Nn]* ) exit;;
+      * ) printf " Error: just write 'y' or 'n'\n\n";;
+    esac
     done
-			#clear
+      clear
 
 logo "Installing needed packages.."
 
@@ -106,25 +106,25 @@ do
   fi
 done
 sleep 2
-#clear
+clear
 
 logo "Checking if yay is installed"
 
-	if ! command -v yay &>/dev/null; then
-		printf "%s%sError YAY is not installed%s\n" "${BLD}" "${CRE}" "${CNC}"
-		sleep 1
-		printf "%s%sInstalling YAY..%s\n\n" "${BLD}" "${CYE}" "${CNC}"
-		sleep 1
-		git clone https://aur.archlinux.org/yay.git
-		cd yay
-		makepkg -si
-		cd $HOME
-		rm -rf yay
-	else
-		printf "%s%sYAY is already installed on your system%s\n" "${BLD}" "${CGR}" "${CNC}"
-	fi
+  if ! command -v yay &>/dev/null; then
+    printf "%s%sError YAY is not installed%s\n" "${BLD}" "${CRE}" "${CNC}"
+    sleep 1
+    printf "%s%sInstalling YAY..%s\n\n" "${BLD}" "${CYE}" "${CNC}"
+    sleep 1
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd $HOME
+    rm -rf yay
+  else
+    printf "%s%sYAY is already installed on your system%s\n" "${BLD}" "${CGR}" "${CNC}"
+  fi
 sleep 2
-#clear
+clear
 
 logo "Cloning the Theme!"
 [ -d ~/dotfiles ] && rm -rf ~/dotfiles
@@ -132,14 +132,14 @@ printf "Cloning the theme from https://github.com/pandaquq/dotfiles\n\n"
 cd $HOME
 git clone --depth=1 https://github.com/pandaquq/dotfiles.git
 sleep 2
-#clear
+clear
 
 logo "Backup your files"
 printf "Backup files will be stored in %s%s%s/.ConfigBackup%s \n\n" "${BLD}" "${CRE}" "$HOME" "${CNC}"
 sleep 5
 
 if [ ! -d "$HOME/.ConfigBackup" ]; then 
-	mkdir -p "${HOME}"/.ConfigBackup
+  mkdir -p "${HOME}"/.ConfigBackup
 fi
 
 [ -d ~/.config/bspwm ] && mv ~/.config/bspwm ~/.ConfigBackup/bspwm-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
@@ -158,23 +158,23 @@ fi
 
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
-#clear
+clear
 
 logo "Copying the Theme.."
 printf "Copying files to respective directories..\n"
 
 if [ ! -d $HOME/.config ]; then
-	mkdir -p $HOME/.config
-	cp -Rf $HOME/dotfiles/config/* $HOME/.config/
+  mkdir -p $HOME/.config
+  cp -Rf $HOME/dotfiles/config/* $HOME/.config/
 else
-	cp -Rf $HOME/dotfiles/config/* $HOME/.config/
+  cp -Rf $HOME/dotfiles/config/* $HOME/.config/
 fi
 
 if [ ! -d $HOME/.local/share/fonts ]; then
-	mkdir -p $HOME/.local/share/fonts
-	cp -Rf $HOME/dotfiles/misc/fonts/* $HOME/.local/share/fonts/
+  mkdir -p $HOME/.local/share/fonts
+  cp -Rf $HOME/dotfiles/misc/fonts/* $HOME/.local/share/fonts/
 else
-	cp -Rf $HOME/dotfiles/misc/fonts/* $HOME/.local/share/fonts/
+  cp -Rf $HOME/dotfiles/misc/fonts/* $HOME/.local/share/fonts/
 fi
 
 cp -f $HOME/dotfiles/home/.zshrc $HOME
@@ -184,29 +184,28 @@ cp -r $HOME/dotfiles/misc/firefox/user.js $HOME/.mozilla/firefox/*.default-relea
 
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
-#clear
+clear
 
-logo "Installing needed packages from AUR"				 
+logo "Installing needed packages from AUR"         
 yay -S eww nerd-fonts-cozette-ttf ttf-maple-latest sublime-text-4 yesplaymusic --needed --noconfirm --removemake --cleanafter 
-sleep 2	  
-#clear
+sleep 2   
+clear
 
 logo "Reloading fonts.."
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFonts reloaded succesfully!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
-#clear
+clear
 
 logo "Enabling SDDM.."
 sudo systemctl enable sddm
 sleep 2
-#clear
+clear
 
 logo "Installing WACSBF.."
-mkdir -p ~/tmp/ && cd ~/tmp
-git clone https://git.pandaquq.tk/panda/WACSBF.git
-cd WACSBF
-sh ~/tmp/WACSBF/instll.sh || printf "loaded"
+mkdir -p ~/tmp/ 
+git clone https://git.pandaquq.tk/panda/WACSBF.git ~/tmp/
+sh ~/tmp/install.sh || printf "loaded"
 #rm -rf ~/tmp
 sleep 2
 #clear
