@@ -179,9 +179,6 @@ fi
 
 cp -f $HOME/dotfiles/home/.zshrc $HOME
 
-cp -r $HOME/dotfiles/misc/firefox/chrome $HOME/.mozilla/firefox/*.default-release/
-cp -r $HOME/dotfiles/misc/firefox/user.js $HOME/.mozilla/firefox/*.default-release/
-
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
