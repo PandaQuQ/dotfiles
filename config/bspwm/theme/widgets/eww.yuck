@@ -52,10 +52,10 @@
                :halign "center"
                :valign "center"
                :space-evenly "false"
-               (button :onclick "physlock -d"
+               (button :onclick "systemctl hibernate"
                     :class "lock-btn"
-                    :tooltip "lock"
-                    ""))
+                    :tooltip "hibernate"
+                    "󰤄"))
           (box :orientation "v"
                :halign "center"
                :valign "center"
