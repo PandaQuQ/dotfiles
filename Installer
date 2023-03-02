@@ -142,6 +142,7 @@ if [ ! -d "$HOME/.ConfigBackup" ]; then
   mkdir -p "${HOME}"/.ConfigBackup
 fi
 
+[ -d ~/.config/WACSBF ] && mv ~/.config/WACSBF ~/.ConfigBackup/WACSBF-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 [ -d ~/.config/bspwm ] && mv ~/.config/bspwm ~/.ConfigBackup/bspwm-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 [ -d ~/.config/alacritty ] && mv ~/.config/alacritty ~/.ConfigBackup/alacritty-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
 [ -d ~/.config/picom ] && mv ~/.config/picom ~/.ConfigBackup/picom-backup-"$(date +%Y.%m.%d-%H.%M.%S)"
