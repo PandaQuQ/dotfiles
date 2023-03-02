@@ -203,9 +203,11 @@ sleep 2
 clear
 
 logo "Installing WACSBF.."
+mkdir -p ~/tmp/ && cd ~/tmp
 git clone https://git.pandaquq.tk/panda/WACSBF.git
 cd WACSBF
 sh ./instll.sh
+rm -rf ~/tmp
 sleep 2
 clear
 
