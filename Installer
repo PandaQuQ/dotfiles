@@ -83,7 +83,7 @@ while true; do
 			* ) printf " Error: just write 'y' or 'n'\n\n";;
 		esac
     done
-			clear
+			#clear
 
 logo "Installing needed packages.."
 
@@ -106,7 +106,7 @@ do
   fi
 done
 sleep 2
-clear
+#clear
 
 logo "Checking if yay is installed"
 
@@ -124,7 +124,7 @@ logo "Checking if yay is installed"
 		printf "%s%sYAY is already installed on your system%s\n" "${BLD}" "${CGR}" "${CNC}"
 	fi
 sleep 2
-clear
+#clear
 
 logo "Cloning the Theme!"
 [ -d ~/dotfiles ] && rm -rf ~/dotfiles
@@ -132,7 +132,7 @@ printf "Cloning the theme from https://github.com/pandaquq/dotfiles\n\n"
 cd $HOME
 git clone --depth=1 https://github.com/pandaquq/dotfiles.git
 sleep 2
-clear
+#clear
 
 logo "Backup your files"
 printf "Backup files will be stored in %s%s%s/.ConfigBackup%s \n\n" "${BLD}" "${CRE}" "$HOME" "${CNC}"
@@ -158,7 +158,7 @@ fi
 
 printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
-clear
+#clear
 
 logo "Copying the Theme.."
 printf "Copying files to respective directories..\n"
@@ -184,36 +184,36 @@ cp -r $HOME/dotfiles/misc/firefox/user.js $HOME/.mozilla/firefox/*.default-relea
 
 printf "%s%sFiles copied succesfully!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
-clear
+#clear
 
 logo "Installing needed packages from AUR"				 
-yay -S eww nerd-fonts-cozette-ttf scientifica-font ttf-maple-latest sublime-text-4 yesplaymusic --needed --noconfirm --removemake --cleanafter 
+yay -S eww nerd-fonts-cozette-ttf ttf-maple-latest sublime-text-4 yesplaymusic --needed --noconfirm --removemake --cleanafter 
 sleep 2	  
-clear
+#clear
 
 logo "Reloading fonts.."
 fc-cache -rv >/dev/null 2>&1
 printf "%s%sFonts reloaded succesfully!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
-clear
+#clear
 
 logo "Enabling SDDM.."
 sudo systemctl enable sddm
 sleep 2
-clear
+#clear
 
 logo "Installing WACSBF.."
 mkdir -p ~/tmp/ && cd ~/tmp
 git clone https://git.pandaquq.tk/panda/WACSBF.git
 cd WACSBF
-sh ./instll.sh
-rm -rf ~/tmp
+sh ~/tmp/WACSBF/instll.sh || printf "loaded"
+#rm -rf ~/tmp
 sleep 2
-clear
+#clear
 
 logo "Installation finished"
 printf "%s%sPlease reboot, then select bspwm in your login manager and log in.%s\n\n" "${BLD}" "${CRE}" "${CNC}"
 chsh -s /usr/bin/zsh
 zsh
 sleep 2
-clear
+#clear

@@ -119,5 +119,3 @@ alias vm-off="sudo systemctl stop libvirtd.service"
 alias ls='lsd -a --group-directories-first'
 alias ll='lsd -la --group-directories-first'
 
-PATH=$HOME/.config/WACSBF/scripts:$PATH
-alias wacsbf='sh $HOME/.config/WACSBF/scripts/WACSBF'
