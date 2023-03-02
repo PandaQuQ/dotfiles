@@ -2,8 +2,8 @@
 
 cmd="${0%/*}/get_status.sh $1"
 
-zscroll -l 30 \
-    --scroll-padding "$(printf ' %.0s' {1..8})" \
+zscroll -l 55 \
+    --scroll-padding "$(printf ' %.0s' {1..2})" \
     -d 0.5 \
     -M "$cmd icon" \
     -m "none"       "-b ''" \
