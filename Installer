@@ -206,13 +206,13 @@ logo "Installing WACSBF.."
 mkdir -p ~/tmp/ 
 git clone https://git.pandaquq.tk/panda/WACSBF.git ~/tmp/
 sh ~/tmp/install.sh || printf "loaded"
-#rm -rf ~/tmp
+rm -rf ~/tmp
 sleep 2
-#clear
+clear
 
 logo "Installation finished"
 printf "%s%sPlease reboot, then select bspwm in your login manager and log in.%s\n\n" "${BLD}" "${CRE}" "${CNC}"
 chsh -s /usr/bin/zsh
 zsh
 sleep 2
-#clear
+clear
