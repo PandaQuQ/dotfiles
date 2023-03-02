@@ -200,6 +200,11 @@ clear
 logo "Enabling SDDM.."
 sudo systemctl enable sddm
 
+logo "Installing WACSBF.."
+git clone https://git.pandaquq.tk/panda/WACSBF.git
+cd WACSBF
+sh instll.sh
+
 logo "Installation finished"
 printf "%s%sPlease reboot, then select bspwm in your login manager and log in.%s\n\n" "${BLD}" "${CRE}" "${CNC}"
 chsh -s /usr/bin/zsh
