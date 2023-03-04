@@ -210,9 +210,31 @@ printf "%s%sDone!!%s\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 2
 clear
 
+logo "iBus input method installation.."
+while true; do
+  read -rp " Do you wish to instll iBus-Rime Chinese input method? [Yy/Nn]: " yn
+    case $yn in
+      [Yy]* ) 
+        yay -S ibus-rime --needed --noconfirm --removemake --cleanafter 
+        echo "ibus-daemon --xim -d -r &" >> ~/.config/bspwm/bspwmrc
+        echo "export GTK_IM_MODULE=ibus" | sudo tee -a /etc/environment
+        echo "export XMODIFIERS=@im=ibus" | sudo tee -a /etc/environment
+        echo "export QT_IM_MODULE=ibus" | sudo tee -a /etc/environment
+        echo "export GTK_IM_MODULE=ibus" >> ~/.profile
+        echo "export XMODIFIERS=@im=ibus" >> ~/.profile
+        echo "export QT_IM_MODULE=ibus" >> ~/.profile
+        break
+        ;;
+      [Nn]* ) break;;
+      * ) printf " Error: just write 'y' or 'n'\n\n";;
+    esac
+    done
+sleep 2
+clear
+
+
 logo "Installation finished"
 printf "%s%sPlease reboot, then select bspwm in your login manager and log in.%s\n\n" "${BLD}" "${CRE}" "${CNC}"
 chsh -s /usr/bin/zsh
-zsh
 sleep 2
 clear
