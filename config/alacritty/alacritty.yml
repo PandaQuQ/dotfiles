@@ -6,7 +6,7 @@ window:
 
   decorations: full
 
-  opacity: 1.0
+  opacity: 0.92
   dynamic_title: true
 
   history: 10000
@@ -14,23 +14,23 @@ window:
 
 font:
   normal:
-    family: Maple Mono SC NF
+    family: FiraCode Nerd Font
     #style: Regular
 
   bold:
-    family: Maple Mono SC NF
+    family: FiraCode Nerd Font
     #style: Bold
 
   
   italic:
-    family: Maple Mono SC NF
+    family: FiraCode Nerd Font
     #style: Italic
 
   bold_italic:
-    family: Maple Mono SC NF
+    family: FiraCode Nerd Font
     #style: Bold Italic
 
-  size: 12
+  size: 8
 
 # Colors (Tokyo Night) Emilia Rice
 colors:
@@ -47,6 +47,9 @@ colors:
     magenta: '#bb9af7'
     cyan:    '#7dcfff'
     white:   '#787c99'
+
+
+
 
   bright:
     black:   '#414868'
