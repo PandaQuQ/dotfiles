@@ -107,3 +107,6 @@ if [[ ! `pidof polkit-gnome-authentication-agent-1` ]]; then
 fi
 
 xsetroot -cursor_name left_ptr
+exec --no-startup-id libinput-gestures-setup start
+export _JAVA_AWT_WM_NONREPARENTING=1
+wmname LG3D
