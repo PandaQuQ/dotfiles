@@ -8,15 +8,16 @@ super + alt + Return
 	Term --oft
 	
 # Apps
-shift + alt + {b,s,d,r,t,q,y,w}
+shift + alt + {b,s,r,t,q,m,w,v,i}
        {google-chrome-stable, \
         subl, \
-        dolphin, \
         alacritty, \
         thunar, \
         qq, \
-	/opt/YesPlayMusic/yesplaymusic %U,\
-        wechat}
+		alacritty -e musicfox,\
+        whatsapp-for-linux,\
+        code,\
+        intellij-idea-ultimate-edition}
         
 #hide
 super + h
@@ -43,7 +44,7 @@ ctrl + super + alt + k
 		{xkill}
         
 # Menu aplicaciones
-super + @space
+super + alt + space
 	rofi -no-lazy-grab -show drun -theme $HOME/.config/bspwm/theme/launcher.rasi
 
 # Reload sxhkd
@@ -59,6 +60,10 @@ super + Escape
 # Reiniciar BSPWM
 super + alt + r
 	bspc wm -r
+
+# Logout
+super + alt + q
+	bspc quit
 
 # close and kill
 super + {_,shift + }q
@@ -196,4 +201,9 @@ XF86AudioNext
 XF86AudioPrev 
         playerctl previous
         
+XF86MonBrightness{Up,Down}  
+  brightnessctl s 10{+,-} 
         
+# WACSBF
+super + alt + w
+	wacsbf 
